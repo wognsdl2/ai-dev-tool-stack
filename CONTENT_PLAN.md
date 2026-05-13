@@ -24,6 +24,15 @@ Goal: Build search traffic around practical AI coding tool decisions and low-cos
 11. Developer tool subscriptions worth paying for
 12. AI coding workflow for maintaining old projects
 
+## AdSense readiness checklist
+
+1. Keep About, Contact, and Privacy pages linked from every page.
+2. Publish at least 10 useful, original articles before applying.
+3. Avoid auto-generated doorway pages, scraped summaries, or thin comparison tables.
+4. Keep ads below the content priority after approval.
+5. Add the AdSense publisher code only after the account is created.
+6. Add `ads.txt` only after Google provides the publisher ID.
+
 ## Weekly production loop
 
 1. Pick one buyer-intent keyword.
