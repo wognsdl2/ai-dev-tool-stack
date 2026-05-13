@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wognsdl2.github.io/ai-dev-tool-stack/sitemap.xml

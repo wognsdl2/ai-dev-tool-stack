@@ -1,0 +1,22 @@
+{
+  "cursor": {
+    "current_url": "https://www.cursor.com/",
+    "replace_after_approval": "PASTE_APPROVED_AFFILIATE_LINK_HERE",
+    "notes": "Use only if an official or network-approved affiliate link is granted."
+  },
+  "blackbox": {
+    "current_url": "https://www.blackbox.ai/",
+    "replace_after_approval": "PASTE_APPROVED_AFFILIATE_LINK_HERE",
+    "notes": "Reported affiliate programs often run through partner networks. Verify in the approved dashboard."
+  },
+  "namecheap": {
+    "current_url": "https://www.namecheap.com/",
+    "replace_after_approval": "PASTE_IMPACT_OR_CJ_TRACKING_LINK_HERE",
+    "notes": "Namecheap lists Impact and CJ options on its official affiliate page."
+  },
+  "hosting": {
+    "current_url": "guides/domain-and-hosting-stack-for-ai-side-projects.html",
+    "replace_after_approval": "PASTE_APPROVED_HOSTING_AFFILIATE_LINK_HERE",
+    "notes": "Do not add hosting claims until the vendor program and terms are verified."
+  }
+}
