@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Coding Tool Evaluation Checklist for Solo Developers</title>
+  <meta name="description" content="A practical checklist for evaluating AI coding tools before paying for a subscription, focused on repository context, review workflow, privacy, and weekly value.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">AI Dev Tool Stack</a>
+    <nav aria-label="Primary">
+      <a href="../index.html#tool-matrix">Tools</a>
+      <a href="../index.html#guides">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+    </nav>
+  </header>
+  <main class="article-body">
+    <p class="eyebrow">Buying checklist</p>
+    <h1>AI coding tool evaluation checklist for solo developers</h1>
+    <p>AI coding tools can look similar in demos. The real difference appears after a week of use: whether the tool understands your project, produces reviewable changes, and saves enough time to justify another recurring subscription.</p>
+    <div class="notice"><strong>Disclosure:</strong> This site may earn from ads or affiliate links. This checklist is designed to help readers evaluate fit before buying.</div>
+
+    <h2>1. Test it on a real repository</h2>
+    <p>Do not evaluate a coding assistant only with isolated prompts. Open a real project with routes, tests, configuration, and naming conventions. Ask the tool to explain how a feature works before asking it to change anything.</p>
+    <p>A useful tool should identify the relevant files, describe the current behavior, and suggest a small change plan. If it guesses file names or ignores the existing architecture, it is not ready for serious project work.</p>
+
+    <h2>2. Check whether edits are easy to review</h2>
+    <p>The best AI output is not just correct-looking code. It is code you can inspect. Prefer tools that show diffs clearly, keep changes scoped, and make it easy to reject individual edits.</p>
+    <table>
+      <thead>
+        <tr><th>Review signal</th><th>Good sign</th><th>Risk sign</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Change size</td><td>Small, focused edits</td><td>Large rewrites without a clear reason</td></tr>
+        <tr><td>Explanation</td><td>Mentions specific files and behavior</td><td>Generic confidence without evidence</td></tr>
+        <tr><td>Tests</td><td>Suggests or updates focused tests</td><td>Claims success without verification</td></tr>
+        <tr><td>Rollback</td><td>Easy to discard partial work</td><td>Hard to separate useful and risky edits</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Evaluate context quality, not just model quality</h2>
+    <p>A strong model can still produce weak results if it receives poor context. For coding work, context includes open files, repository search, terminal output, test failures, and the ability to keep track of previous edits.</p>
+    <p>During a trial, ask the tool to make a change that touches two or three files. Then check whether it preserved local conventions such as component naming, environment variable patterns, route structure, and error handling style.</p>
+
+    <h2>4. Decide what data you are comfortable sharing</h2>
+    <p>Solo developers often work with private projects, customer data, API keys, or unpublished business logic. Before using any AI coding tool, review what code or prompts may be sent to the provider and whether project-level exclusions are available.</p>
+    <ul class="plain-list">
+      <li>Never paste secrets or private keys into prompts.</li>
+      <li>Check whether the tool respects ignore files or workspace exclusions.</li>
+      <li>Use separate test projects when evaluating tools for sensitive work.</li>
+      <li>Prefer explicit security habits over convenience.</li>
+    </ul>
+
+    <h2>5. Measure weekly value before upgrading</h2>
+    <p>A tool is worth paying for when it repeatedly saves time on work you actually do. Track one week of usage before upgrading: bug fixes, refactors, tests written, documentation improved, or review time saved.</p>
+    <p>If the tool is only useful for occasional brainstorming, a general chat assistant may be enough. If it helps you ship project changes several times a week, a codebase-aware editor can be easier to justify.</p>
+
+    <h2>Practical trial plan</h2>
+    <ol>
+      <li>Pick one active project, not a toy example.</li>
+      <li>Ask for a codebase explanation before requesting edits.</li>
+      <li>Run one small bug fix or refactor through the tool.</li>
+      <li>Review the diff manually.</li>
+      <li>Run tests or a local smoke check.</li>
+      <li>Decide based on saved time, not first impression.</li>
+    </ol>
+
+    <div class="article-cta">
+      <h2>Related guide</h2>
+      <p>If you are still deciding between a project-aware editor and a chat assistant, start with the workflow comparison first.</p>
+      <a href="ai-code-editor-vs-chat-assistant.html">Read: AI code editor vs chat assistant</a>
+    </div>
+  </main>
+  <footer>
+    <p>AI Dev Tool Stack is an independent comparison site. Verify pricing and plan details on each vendor site before buying.</p>
+    <p class="footer-links"><a href="../about.html">About</a> · <a href="../contact.html">Contact</a> · <a href="../privacy.html">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>
