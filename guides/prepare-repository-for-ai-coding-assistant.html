@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Prepare a Repository for an AI Coding Assistant</title>
+  <meta name="description" content="A practical repository preparation checklist for solo developers using AI coding assistants on real projects, with guidance on docs, tests, scripts, and review boundaries.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">AI Dev Tool Stack</a>
+    <nav aria-label="Primary">
+      <a href="../index.html#tool-matrix">Tools</a>
+      <a href="../index.html#guides">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+    </nav>
+  </header>
+  <main class="article-body">
+    <p class="eyebrow">Repository setup</p>
+    <h1>How to prepare a repository for an AI coding assistant</h1>
+    <p>An AI coding assistant is easier to use when the repository explains itself. Clear scripts, small docs, predictable folders, and focused tests give the assistant better context and make its changes easier for the developer to review.</p>
+    <p>The goal is not to write a large internal manual. The goal is to remove ambiguity from the parts of the project that change often: setup, architecture, commands, conventions, and safety boundaries.</p>
+    <div class="notice"><strong>Disclosure:</strong> This site may earn from ads or affiliate links. This guide is tool-neutral and avoids vendor rankings or unverified pricing claims.</div>
+
+    <h2>Start with the commands a reviewer needs</h2>
+    <p>Every repository should make the common commands obvious. A coding assistant can usually inspect package files, but it should not have to infer which command is safe or current.</p>
+    <table>
+      <thead>
+        <tr><th>Command type</th><th>What to document</th><th>Why it helps</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Install</td><td>The exact package manager and install command</td><td>Prevents accidental lockfile or dependency churn</td></tr>
+        <tr><td>Run locally</td><td>The dev server command and expected localhost URL</td><td>Makes browser verification faster</td></tr>
+        <tr><td>Test</td><td>Unit, integration, and focused test commands</td><td>Lets the assistant verify narrow changes</td></tr>
+        <tr><td>Format or lint</td><td>The command used before committing</td><td>Reduces noisy style-only diffs</td></tr>
+        <tr><td>Build</td><td>The production build or static export command</td><td>Catches packaging and deployment issues early</td></tr>
+      </tbody>
+    </table>
+    <p>Put these in the README or a short contributor note. If a command is slow or flaky, label it instead of letting the assistant discover that by trial and error.</p>
+
+    <h2>Add a small project map</h2>
+    <p>A project map gives the assistant enough orientation to avoid editing the wrong layer. It can be as short as five bullets:</p>
+    <ul class="plain-list">
+      <li>Where UI components live.</li>
+      <li>Where data access or API clients live.</li>
+      <li>Where shared types, schemas, or validation rules live.</li>
+      <li>Where tests and fixtures live.</li>
+      <li>Which folders are generated, vendored, or not meant for manual edits.</li>
+    </ul>
+    <p>This is especially useful in older projects where folder names no longer match the current architecture. The map does not need to be perfect. It only needs to reduce the chance of confident edits in the wrong place.</p>
+
+    <h2>Write down the boundaries</h2>
+    <p>AI assistants are better when they know what not to touch. Add a short section for boundaries such as:</p>
+    <ul class="plain-list">
+      <li>Do not change database migrations without explicit review.</li>
+      <li>Do not edit generated files directly.</li>
+      <li>Do not change public API response shapes unless the task asks for it.</li>
+      <li>Do not rewrite unrelated modules while fixing a narrow bug.</li>
+      <li>Do not remove existing user changes to make a patch cleaner.</li>
+    </ul>
+    <p>These rules are not only for the assistant. They also help the solo developer keep review focused when work moves quickly.</p>
+
+    <h2>Keep examples close to the code</h2>
+    <p>If the project has patterns that matter, place one clear example near the implementation. Examples are often more useful than long style documents. A test fixture, a small route handler, or a known-good component gives the assistant a local pattern to follow.</p>
+    <p>This matters most for forms, error handling, API clients, authentication checks, and background jobs. Those areas usually have conventions that are easy to break with a plausible-looking edit.</p>
+
+    <h2>Make tests easy to run in slices</h2>
+    <p>A solo developer does not always have time to run a full suite after every small change. Give the assistant focused paths:</p>
+    <ul class="plain-list">
+      <li>A command for one test file.</li>
+      <li>A command for one package or workspace.</li>
+      <li>A command for changed frontend behavior, if the project has browser tests.</li>
+      <li>A clear note for tests that require secrets, services, or seeded data.</li>
+    </ul>
+    <p>Focused tests make AI edits more reliable because the assistant can verify the behavior it touched instead of guessing from static inspection.</p>
+
+    <h2>Add a review prompt to the repository</h2>
+    <p>If AI review is part of the workflow, keep the review standard in the repo. A short file like <code>docs/ai-review.md</code> can tell the assistant to prioritize bugs, regressions, missing tests, and risky behavior over subjective style comments.</p>
+    <p>This keeps the workflow consistent across tools. Whether the developer uses a code editor assistant, a chat assistant, or a command-line agent, the review criteria stay the same.</p>
+
+    <h2>Prepare before the repository gets large</h2>
+    <p>The best time to prepare a repository is before it becomes hard to explain. Small notes added early prevent repeated context setup later. For a solo developer, that means less time restating the same project rules and more time reviewing actual changes.</p>
+    <p>A prepared repository does not make AI work automatic. It makes AI work reviewable. That is the practical difference between quick suggestions and changes that can safely move toward production.</p>
+
+    <div class="article-cta">
+      <h2>Related guide</h2>
+      <p>After preparing the repository, use a structured review process before shipping AI-assisted changes.</p>
+      <a href="ai-code-review-workflow-for-solo-developers.html">Read: AI code review workflow for solo developers</a>
+    </div>
+  </main>
+  <footer>
+    <p>AI Dev Tool Stack is an independent comparison site. Verify pricing and plan details on each vendor site before buying.</p>
+    <p class="footer-links"><a href="../about.html">About</a> &middot; <a href="../contact.html">Contact</a> &middot; <a href="../privacy.html">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>
