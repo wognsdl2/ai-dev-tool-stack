@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Code Review Workflow for Solo Developers</title>
+  <meta name="description" content="A practical AI-assisted code review workflow for solo developers who need cleaner changes, better tests, and fewer missed risks before shipping.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">AI Dev Tool Stack</a>
+    <nav aria-label="Primary">
+      <a href="../index.html#tool-matrix">Tools</a>
+      <a href="../index.html#guides">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+    </nav>
+  </header>
+  <main class="article-body">
+    <p class="eyebrow">Review workflow</p>
+    <h1>AI code review workflow for solo developers</h1>
+    <p>Solo developers do not get the natural second pair of eyes that a team review provides. That is where an AI coding assistant can help, but only if the review is structured. Asking "is this code good?" usually produces shallow feedback. A better workflow gives the assistant a narrow job, useful context, and a clear standard for what counts as a real issue.</p>
+    <div class="notice"><strong>Disclosure:</strong> This site may earn from ads or affiliate links. This guide is workflow advice, not a vendor ranking or a claim that any tool catches every bug.</div>
+
+    <h2>Start with a small review target</h2>
+    <p>AI review works best when the change is small enough to reason about. Before asking for feedback, split unrelated edits into separate commits or pull requests. A styling cleanup, a data model change, and a payment flow fix should not be reviewed as one pile.</p>
+    <p>For a solo project, a practical review target is one feature, one bug fix, or one refactor with a short explanation of intent. If the diff is too large to explain in three sentences, it is probably too large for one AI review pass.</p>
+
+    <h2>Give the assistant the job a reviewer would have</h2>
+    <p>A strong prompt is specific about risk. Instead of asking for general suggestions, assign a review role:</p>
+    <ul class="plain-list">
+      <li><strong>Bug review:</strong> Look for logic errors, edge cases, null states, async failures, and broken assumptions.</li>
+      <li><strong>Security review:</strong> Check user input, authorization, secrets, unsafe redirects, and data exposure.</li>
+      <li><strong>Regression review:</strong> Compare the changed behavior against the old behavior and call out compatibility risks.</li>
+      <li><strong>Test review:</strong> Identify the smallest tests that would prove the change works.</li>
+    </ul>
+    <p>Do these as separate passes. A single broad review tends to blur important issues into generic comments.</p>
+
+    <h2>Use a repeatable review prompt</h2>
+    <p>Keep a small prompt in the repository so review quality does not depend on memory. This version is intentionally plain:</p>
+    <pre><code>Review this change as a senior engineer.
+Focus on bugs, regressions, missing tests, and unclear behavior.
+Ignore style preferences unless they affect maintainability.
+List findings first, with severity and file references.
+If you find no real issues, say that and mention remaining test gaps.</code></pre>
+    <p>The instruction to list findings first matters. It pushes the assistant away from long summaries and toward actionable review output.</p>
+
+    <h2>Ask for tests after issues, not before</h2>
+    <p>Many developers ask an AI assistant to write tests immediately. That can be useful, but the better sequence is to review the risk first and then ask for tests that target the highest-risk behavior.</p>
+    <p>For example, if the review finds that a date parser may fail around timezone boundaries, the test request should focus on timezone cases. If the risk is an empty state, the test should cover missing data. The goal is not to increase test count; the goal is to cover the behavior most likely to break.</p>
+
+    <h2>Keep the human decision in the loop</h2>
+    <p>AI review is not an approval system. Treat it like a fast reviewer that can be wrong. Read every finding, reproduce suspicious claims, and reject comments that do not match the code.</p>
+    <p>A useful rule is simple: do not change code only because the assistant suggested it. Change code because the issue is real, the behavior is unclear, or the test gap is worth closing.</p>
+
+    <h2>Run a final shipping check</h2>
+    <p>Before merging or deploying, run a short checklist:</p>
+    <ol>
+      <li>Does the diff only contain the intended change?</li>
+      <li>Did the AI review produce any unresolved bug or regression findings?</li>
+      <li>Were the focused tests, lint checks, or build checks run locally?</li>
+      <li>Is there a rollback path if the change affects production data or payments?</li>
+    </ol>
+    <p>This is where AI assistance becomes valuable for a solo developer: not by replacing judgment, but by making review discipline easier to repeat.</p>
+
+    <div class="article-cta">
+      <h2>Related guide</h2>
+      <p>If you are deciding whether an AI coding assistant belongs in your stack, review the evaluation checklist before paying for another subscription.</p>
+      <a href="ai-coding-tool-evaluation-checklist.html">Read: AI coding tool evaluation checklist</a>
+    </div>
+  </main>
+  <footer>
+    <p>AI Dev Tool Stack is an independent comparison site. Verify pricing and plan details on each vendor site before buying.</p>
+    <p class="footer-links"><a href="../about.html">About</a> &middot; <a href="../contact.html">Contact</a> &middot; <a href="../privacy.html">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>
