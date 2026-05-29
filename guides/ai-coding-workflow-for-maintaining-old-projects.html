@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Coding Workflow for Maintaining Old Projects</title>
+  <meta name="description" content="A practical AI coding workflow for maintaining old software projects, with steps for mapping the codebase, reducing risk, writing tests, and shipping small changes.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">AI Dev Tool Stack</a>
+    <nav aria-label="Primary">
+      <a href="../index.html#tool-matrix">Tools</a>
+      <a href="../index.html#guides">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+    </nav>
+  </header>
+  <main class="article-body">
+    <p class="eyebrow">Legacy workflow</p>
+    <h1>AI coding workflow for maintaining old projects</h1>
+    <p>Old projects are rarely difficult for one reason. The challenge is usually a mix of stale dependencies, unclear conventions, missing tests, forgotten deployment steps, and code that still works but no longer explains why it works.</p>
+    <p>An AI coding assistant can help with maintenance, but it should not be pointed at the whole repository and told to modernize everything. The safer workflow is slower at the start: map the project, choose a narrow change, add a verification path, then edit in small steps.</p>
+    <div class="notice"><strong>Disclosure:</strong> This site may earn from ads or affiliate links. This guide is workflow advice and does not rank vendors or make pricing claims.</div>
+
+    <h2>Map the project before editing</h2>
+    <p>The first AI task should be read-only. Ask the assistant to identify the main entry points, the folders that matter, the test commands, and the areas that look generated or risky. The output should be a short map, not a refactor plan.</p>
+    <p>For an older repository, this map is useful even when it is incomplete. It tells you where the assistant thinks the boundaries are, which gives you a chance to correct bad assumptions before code changes begin.</p>
+
+    <h2>Separate maintenance from modernization</h2>
+    <p>Maintenance and modernization are different jobs. Maintenance keeps the project working. Modernization changes the underlying shape of the project. Mixing both in one change makes review harder and increases the chance of breaking behavior users already depend on.</p>
+    <table>
+      <thead>
+        <tr><th>Task type</th><th>Good AI request</th><th>Risk to avoid</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Bug fix</td><td>Trace this bug path and propose the smallest fix</td><td>Rewriting nearby code without proving the bug</td></tr>
+        <tr><td>Dependency update</td><td>Identify API changes needed for this one package update</td><td>Updating unrelated packages at the same time</td></tr>
+        <tr><td>Test recovery</td><td>Add a focused test around current behavior</td><td>Changing behavior to make a new test pass</td></tr>
+        <tr><td>Cleanup</td><td>Remove one dead path and explain why it is unused</td><td>Deleting code based only on name or age</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Ask for a behavior summary</h2>
+    <p>Before changing old code, ask the assistant to summarize what the current code does in plain language. Then compare that summary against what you know about the product. This catches a common failure mode: plausible edits based on a wrong model of the system.</p>
+    <p>For example, a billing helper may look redundant until you notice it supports an old customer plan. A route may look unused until it is called by a scheduled job. A strange condition may be guarding data from a previous migration.</p>
+
+    <h2>Add a verification path before the patch</h2>
+    <p>If the project has weak tests, do not start by asking for a broad test suite. Start with one verification path for the behavior being touched:</p>
+    <ul class="plain-list">
+      <li>A small unit test for a pure function.</li>
+      <li>A regression test for a bug that has already happened.</li>
+      <li>A local browser check for a visible workflow.</li>
+      <li>A command that proves the app still builds after the change.</li>
+    </ul>
+    <p>This gives the assistant a concrete target and gives you a way to reject changes that look reasonable but do not prove anything.</p>
+
+    <h2>Keep prompts narrow and reversible</h2>
+    <p>Old projects benefit from narrow prompts. Ask for one file, one behavior, or one dependency at a time. If the assistant needs to touch more files, it should explain why before making the wider change.</p>
+    <p>A useful instruction is: "Make the smallest reviewable change and leave unrelated cleanup for a separate pass." That keeps maintenance from turning into a hidden rewrite.</p>
+
+    <h2>Review for compatibility, not just correctness</h2>
+    <p>New code can be correct and still incompatible with the old project. During review, check for changed public APIs, modified data shapes, renamed environment variables, altered URLs, and different default behavior.</p>
+    <p>This is where an AI review pass can help. Ask it to focus on regressions and compatibility risks rather than style. If it cannot point to a specific behavior that changed, treat the finding as low confidence.</p>
+
+    <h2>Document what you learned</h2>
+    <p>Every maintenance task should leave the repository a little easier to work with. Add a note to the README, a command to a script section, or a short comment near a non-obvious compatibility branch. Do not document everything. Document the thing that would have saved time at the start of the task.</p>
+    <p>This is how old projects become easier to maintain without a large rewrite. Each small fix also improves the context available to the next AI-assisted change.</p>
+
+    <div class="article-cta">
+      <h2>Related guides</h2>
+      <p>For safer AI-assisted maintenance, prepare the repository first and use a structured review pass before shipping.</p>
+      <a href="prepare-repository-for-ai-coding-assistant.html">Read: How to prepare a repository for an AI coding assistant</a>
+      <br>
+      <a href="ai-code-review-workflow-for-solo-developers.html">Read: AI code review workflow for solo developers</a>
+    </div>
+  </main>
+  <footer>
+    <p>AI Dev Tool Stack is an independent comparison site. Verify pricing and plan details on each vendor site before buying.</p>
+    <p class="footer-links"><a href="../about.html">About</a> &middot; <a href="../contact.html">Contact</a> &middot; <a href="../privacy.html">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>
