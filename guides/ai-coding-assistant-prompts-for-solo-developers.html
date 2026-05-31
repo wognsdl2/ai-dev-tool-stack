@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Coding Assistant Prompts for Solo Developers</title>
+  <meta name="description" content="Practical AI coding assistant prompts for solo developers working on real repositories, including bug review, tests, refactors, documentation, and static-site publishing.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">AI Dev Tool Stack</a>
+    <nav aria-label="Primary">
+      <a href="../index.html#tool-matrix">Tools</a>
+      <a href="../index.html#guides">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+    </nav>
+  </header>
+  <main class="article-body">
+    <p class="eyebrow">Prompt workflow</p>
+    <h1>AI coding assistant prompts for solo developers</h1>
+    <p>AI coding assistants are most useful when the request is specific enough to produce reviewable work. A vague prompt like "improve this project" usually creates broad suggestions. A focused prompt can help inspect a bug, prepare a test, explain a risky file, or publish a static-site update.</p>
+    <p>This guide collects practical prompt patterns for solo developers who work without a teammate reviewing every change. The prompts are written for real repository work, not homework, spam content, or fake productivity demos.</p>
+    <div class="notice"><strong>Disclosure:</strong> This site may earn from ads or affiliate links. These prompts are tool-neutral examples and do not guarantee a correct result from any assistant.</div>
+
+    <h2>Use prompts that define the job</h2>
+    <p>A good prompt says what kind of work is expected, what should be ignored, and what output format is useful. This reduces generic advice and makes the result easier to verify.</p>
+    <pre><code>Inspect this repository area before editing.
+Explain the relevant files, current behavior, and likely risk points.
+Do not propose a rewrite. End with the smallest safe next step.</code></pre>
+    <p>This prompt is useful when entering an unfamiliar part of a project. It forces an observation pass before code changes.</p>
+
+    <h2>Prompt for a bug investigation</h2>
+    <p>Bug prompts should ask for a path through the code, not a guess. The assistant should explain how data moves, where assumptions can fail, and what minimal fix would address the specific problem.</p>
+    <pre><code>Investigate this bug as a maintainer.
+Trace the likely execution path from input to failure.
+List the files involved, the failing assumption, and the smallest patch.
+Do not edit unrelated code or change public behavior outside this bug.</code></pre>
+    <p>After the investigation, ask for a focused patch only if the explanation matches what you can observe in the project.</p>
+
+    <h2>Prompt for a test plan</h2>
+    <p>Tests are more useful when they target risk. Ask for the smallest test plan first, then choose which tests to implement.</p>
+    <pre><code>Create a focused test plan for this change.
+Prioritize regression risks and edge cases.
+List the test name, behavior covered, and why it matters.
+Do not add broad tests that duplicate existing coverage.</code></pre>
+    <p>This works well before changing old code, adding validation, or touching a workflow that has few existing tests.</p>
+
+    <h2>Prompt for code review</h2>
+    <p>For solo developers, AI code review is valuable only when it behaves like a strict reviewer. Ask for findings first and keep summaries short.</p>
+    <pre><code>Review this diff as a senior engineer.
+Focus on bugs, regressions, missing tests, unclear behavior, and risky assumptions.
+List findings first with severity and file references.
+If there are no real issues, say that and list remaining verification gaps.</code></pre>
+    <p>This prompt keeps the review grounded. It also makes weak findings easier to reject because each issue should point to a concrete file and behavior.</p>
+
+    <h2>Prompt for a small refactor</h2>
+    <p>Refactors are risky when they expand beyond the original intent. A useful prompt puts a tight boundary around the change.</p>
+    <pre><code>Refactor only the selected code path.
+Keep behavior the same.
+Reduce duplication or clarify naming only where it directly supports this task.
+After editing, summarize what changed and which command should verify it.</code></pre>
+    <p>If the assistant wants to touch more files, require an explanation before expanding the scope.</p>
+
+    <h2>Prompt for documentation updates</h2>
+    <p>Documentation prompts should ask for practical information that would help the next maintenance task. Avoid broad marketing copy inside a technical repo.</p>
+    <pre><code>Update the project documentation for this workflow.
+Include the command, expected result, and common failure mode.
+Keep it short and place it near the relevant setup or contributor section.</code></pre>
+    <p>This is useful after discovering a non-obvious setup step, test command, or deployment requirement.</p>
+
+    <h2>Prompt for static-site publishing</h2>
+    <p>For a static content site, the assistant should update the article, homepage list, and sitemap together. That prevents orphan pages.</p>
+    <pre><code>Add one focused guide page to this static site.
+Use original, practical content.
+Update the homepage guide list and sitemap in the same change.
+Keep About, Contact, Privacy, and disclosure links intact.
+Avoid vendor rankings, fake claims, and thin affiliate copy.</code></pre>
+    <p>This prompt fits a simple GitHub Pages publishing workflow where every new guide should be reachable and indexable.</p>
+
+    <h2>Prompt for a final shipping check</h2>
+    <p>Before committing, ask the assistant to verify the change against the stated task. This is not a replacement for human review, but it catches missing files and obvious inconsistencies.</p>
+    <pre><code>Check this change against the original task.
+Confirm the intended files were updated.
+Look for missing internal links, broken relative paths, and unverified claims.
+List any command output or manual checks still needed before shipping.</code></pre>
+    <p>The best result is short and specific. If the assistant produces a long essay, ask it to reduce the answer to blockers and verification gaps.</p>
+
+    <h2>Keep a reusable prompt file</h2>
+    <p>Solo developers should keep proven prompts in the repository or a personal notes file. Reuse is important because it makes AI assistance predictable. The prompts can be adjusted by project, but the review standard should stay consistent.</p>
+    <p>Prompts do not make code safe by themselves. They make the assistant's work easier to inspect, test, and reject when it does not match the project.</p>
+
+    <div class="article-cta">
+      <h2>Related guides</h2>
+      <p>These prompts work best when the repository is prepared and the review workflow is explicit.</p>
+      <a href="prepare-repository-for-ai-coding-assistant.html">Read: How to prepare a repository for an AI coding assistant</a>
+      <br>
+      <a href="ai-code-review-workflow-for-solo-developers.html">Read: AI code review workflow for solo developers</a>
+    </div>
+  </main>
+  <footer>
+    <p>AI Dev Tool Stack is an independent comparison site. Verify pricing and plan details on each vendor site before buying.</p>
+    <p class="footer-links"><a href="../about.html">About</a> &middot; <a href="../contact.html">Contact</a> &middot; <a href="../privacy.html">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>
