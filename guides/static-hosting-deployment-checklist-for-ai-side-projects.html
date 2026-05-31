@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Static Hosting Deployment Checklist for AI Side Projects</title>
+  <meta name="description" content="A practical static hosting deployment checklist for solo developers launching AI side projects, covering routes, metadata, sitemap, domain setup, analytics, and rollback.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">AI Dev Tool Stack</a>
+    <nav aria-label="Primary">
+      <a href="../index.html#tool-matrix">Tools</a>
+      <a href="../index.html#guides">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+    </nav>
+  </header>
+  <main class="article-body">
+    <p class="eyebrow">Deployment checklist</p>
+    <h1>Static hosting deployment checklist for AI side projects</h1>
+    <p>Many AI side projects do not need a complex deployment stack on day one. A landing page, documentation hub, comparison site, or lightweight product guide can often start as a static site with a custom domain and a simple publishing workflow.</p>
+    <p>The risk is not that static hosting is too small. The risk is shipping a site with broken routes, missing metadata, unclear trust pages, or no way to roll back. This checklist keeps the first deployment small and reviewable.</p>
+    <div class="notice"><strong>Disclosure:</strong> This site may earn from ads or affiliate links. This guide is operational advice and does not guarantee traffic, revenue, or approval from any platform.</div>
+
+    <h2>Confirm the project fits static hosting</h2>
+    <p>Static hosting is a good first choice when the site mainly serves public pages. It is less suitable when the first version requires authenticated dashboards, private user data, server-side jobs, or real-time collaboration.</p>
+    <table>
+      <thead>
+        <tr><th>Good static fit</th><th>Needs more infrastructure</th><th>Decision question</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Landing page</td><td>Account dashboard</td><td>Does each visitor see the same page?</td></tr>
+        <tr><td>Tool comparison guide</td><td>User-specific reports</td><td>Is private data required?</td></tr>
+        <tr><td>Documentation</td><td>Background processing</td><td>Does the site need server-side work?</td></tr>
+        <tr><td>Content site</td><td>Paid app workflow</td><td>Can payments and user state wait?</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Build a clean file structure</h2>
+    <p>Before deploying, check that the repository has obvious entry files and predictable folders. A static AI project site should make it clear where pages, images, styles, and scripts live.</p>
+    <ul class="plain-list">
+      <li>Keep the homepage at a stable root path.</li>
+      <li>Put long-form guides or docs in a dedicated folder.</li>
+      <li>Use descriptive file names instead of generic numbered pages.</li>
+      <li>Keep generated build output separate from editable source files.</li>
+      <li>Document the command that creates the deployable output, if there is one.</li>
+    </ul>
+
+    <h2>Check routes before publishing</h2>
+    <p>Static sites can fail quietly when relative paths are wrong. Open the homepage, at least two internal pages, and the footer links before pushing the final version.</p>
+    <p>For a small content site, every guide should be reachable from the homepage or a clear index page. Avoid orphan pages that exist in the repository but have no internal link from the live site.</p>
+
+    <h2>Review metadata and trust pages</h2>
+    <p>Each page should have a specific title, a concise meta description, and one clear H1. If the site has ads, affiliate links, analytics, or a contact path, make the relevant disclosure and trust pages easy to find.</p>
+    <p>The baseline is simple: About, Contact, and Privacy links should remain visible. If a page includes sponsored or affiliate links, the disclosure should be plain and close enough for readers to notice.</p>
+
+    <h2>Update the sitemap in the same change</h2>
+    <p>When adding a page, update the sitemap before the commit. This keeps the deployment consistent and makes it easier to submit or inspect the site later.</p>
+    <p>A sitemap is also a publishing checklist. If a public page belongs on the site but is missing from the sitemap, check whether it is missing from navigation too.</p>
+
+    <h2>Connect the domain deliberately</h2>
+    <p>A custom domain is not required for every early project, but it helps when the site is meant to build a lasting search footprint. Use a domain that is readable, specific enough for the project, and not locked to a short-lived idea.</p>
+    <p>After connecting the domain, test the root URL, the www or non-www version you intend to use, and at least one deep guide URL. Do this before sharing the site publicly.</p>
+
+    <h2>Add analytics only after the pages work</h2>
+    <p>Analytics should not be the first thing to debug. Deploy the pages, verify navigation, then add lightweight analytics if the site needs measurement.</p>
+    <p>For a solo builder, useful analytics usually means page views, internal guide clicks, and outbound link clicks. Avoid collecting data that does not support a publishing decision.</p>
+
+    <h2>Prepare a rollback path</h2>
+    <p>A static deployment should be easy to undo. Keep each content or layout change in a clear commit. If a new page breaks layout or navigation, reverting the last commit should restore the previous live site.</p>
+    <p>Before a larger change, note the last known-good commit. This is enough for most static sites and prevents a small publishing mistake from becoming a long debugging session.</p>
+
+    <h2>Run the final deployment check</h2>
+    <ol>
+      <li>Open the homepage and confirm the primary navigation works.</li>
+      <li>Open the newest guide from the homepage list.</li>
+      <li>Check About, Contact, Privacy, and disclosure text.</li>
+      <li>Confirm the sitemap includes the new public page.</li>
+      <li>Check one mobile-width view for readable text and no obvious overlap.</li>
+      <li>Push only after the local or live preview matches the intended change.</li>
+    </ol>
+    <p>This keeps the launch process boring. For static hosting, boring is usually the correct target.</p>
+
+    <div class="article-cta">
+      <h2>Related guides</h2>
+      <p>For a complete static launch path, pair this deployment checklist with domain, SEO, and analytics setup guides.</p>
+      <a href="domain-and-hosting-stack-for-ai-side-projects.html">Read: Domain and hosting stack for AI side projects</a>
+      <br>
+      <a href="github-pages-seo-checklist-for-developer-tool-sites.html">Read: GitHub Pages SEO checklist for developer tool sites</a>
+      <br>
+      <a href="static-site-analytics-setup-for-solo-developers.html">Read: Static site analytics setup for solo developers</a>
+    </div>
+  </main>
+  <footer>
+    <p>AI Dev Tool Stack is an independent comparison site. Verify pricing and plan details on each vendor site before buying.</p>
+    <p class="footer-links"><a href="../about.html">About</a> &middot; <a href="../contact.html">Contact</a> &middot; <a href="../privacy.html">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>
